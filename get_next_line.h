@@ -6,7 +6,7 @@
 /*   By: thbeaumo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 12:56:33 by thbeaumo          #+#    #+#             */
-/*   Updated: 2019/10/18 13:08:02 by thbeaumo         ###   ########.fr       */
+/*   Updated: 2019/10/19 23:33:09 by bod              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# define BUFF_SIZE 1
+# define MAX_FD 3000
 
+
+size_t	ft_strlen(const char *s);
+char	*ft_strjoin(char const *s1, char *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strdup(const char *s1);
 
 #endif

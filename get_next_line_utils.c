@@ -6,7 +6,7 @@
 /*   By: thbeaumo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 12:58:07 by thbeaumo          #+#    #+#             */
-/*   Updated: 2019/10/18 15:28:58 by thbeaumo         ###   ########.fr       */
+/*   Updated: 2019/10/19 23:54:14 by bod              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,10 @@ char	*ft_strdup(const char *s1)
 {
 	char *copy;
 	int i;
-	int j;
 	int len;
 
-	j = 0;
-	i = 0;
+    len = 0;
+    i = 0;
 	while (s1[len])
 		len++;
 	if (!(copy = (char *)malloc(sizeof(char) * (len + 1))))
@@ -88,9 +87,8 @@ char	*ft_strdup(const char *s1)
 	while (s1[i])
 	{
 		copy[i] = s1[i];
-		j++;
 		i++;
 	}
-	copy[j] = '\0';
+	copy[i] = '\0';
 	return (copy);
 }
