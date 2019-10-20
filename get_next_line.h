@@ -6,7 +6,7 @@
 /*   By: thbeaumo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 12:56:33 by thbeaumo          #+#    #+#             */
-/*   Updated: 2019/10/20 11:51:44 by thbeaumo         ###   ########.fr       */
+/*   Updated: 2019/10/20 15:28:11 by thbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# define BUFF_SIZE 1
+# define BUFF_SIZE 4096
 # define MAX_FD 3000
 
 
