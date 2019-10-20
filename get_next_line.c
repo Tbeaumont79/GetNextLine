@@ -6,7 +6,7 @@
 /*   By: thbeaumo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 12:55:42 by thbeaumo          #+#    #+#             */
-/*   Updated: 2019/10/20 00:10:48 by bod              ###   ########.fr       */
+/*   Updated: 2019/10/20 12:10:46 by thbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,22 @@ static int		ft_cutline(char *s[], char **line, int fd)
         free(s[fd]);
 	}
 	return (1);
+}
+
+static char		*ft_strchr(const char *s, int c)
+{
+	char *str;
+	size_t i;
+
+	i = 0;
+	str = (char *)s;
+	while (i < (ft_strlen(str) + 1))
+	{
+		if (str[i] == c)
+			return (str + i);
+		i++;
+	}
+	return (0);
 }
 
 static int		ft_read(char *s[], int ret, int fd)
