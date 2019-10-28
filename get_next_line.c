@@ -6,7 +6,7 @@
 /*   By: thbeaumo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 12:55:42 by thbeaumo          #+#    #+#             */
-/*   Updated: 2019/10/28 11:39:07 by bod              ###   ########.fr       */
+/*   Updated: 2019/10/28 11:48:01 by bod              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static int		ft_cutline(char *s[], char **line, int fd)
 	char *tmp;
 
     len = 0;
-	while (s[fd][len] != '\n' && s[fd][len])
+	while (s[fd][len] != '\n' && s[fd][len] != '\0')
 		len++;
 	if (s[fd][len] == '\n')
 	{
@@ -168,7 +168,7 @@ int				get_next_line(int fd, char **line)
     if (!s[fd])
 	    if (!(s[fd] = (char *)malloc(1)))
 		    return (-1);
-	while (s[fd][len] != '\0' && s[fd][len] != '\n')
+	while (s[fd][len] != '\n' && s[fd][len] != '\0')
 		len++;
 	if (s[fd][len] == '\n')
     {
@@ -180,7 +180,7 @@ int				get_next_line(int fd, char **line)
 		ret = ft_read(s, ret, fd);
         if (ret < 0)
             return (-1);
-        else if (ret == 0 || (s[fd][0] == '\0' && s[fd][0] != '\n'))
+        else if (ret == 0 && (s[fd][0] == '\0'))
             return (0);
 	}
     return (ft_cutline(s, line, fd));
