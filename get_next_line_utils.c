@@ -6,7 +6,7 @@
 /*   By: thbeaumo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 12:58:07 by thbeaumo          #+#    #+#             */
-/*   Updated: 2019/10/19 23:54:14 by bod              ###   ########.fr       */
+/*   Updated: 2019/10/29 16:27:35 by thbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_strjoin(char const *s1, char *s2)
 {
-	int i;
-	int j;
-	char *tab;
-	int count;
+	int		i;
+	int		j;
+	char	*tab;
+	int		count;
 
 	i = 0;
 	j = 0;
@@ -47,9 +47,9 @@ char	*ft_strjoin(char const *s1, char *s2)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t i;
-	size_t slen;
-	char *ptr;
+	size_t	i;
+	size_t	slen;
+	char	*ptr;
 
 	if (!s || start < 0)
 		return (0);
@@ -74,12 +74,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 char	*ft_strdup(const char *s1)
 {
-	char *copy;
-	int i;
-	int len;
+	char	*copy;
+	int		i;
+	int		len;
 
-    len = 0;
-    i = 0;
+	len = 0;
+	i = 0;
 	while (s1[len])
 		len++;
 	if (!(copy = (char *)malloc(sizeof(char) * (len + 1))))
