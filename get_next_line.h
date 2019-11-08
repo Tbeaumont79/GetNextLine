@@ -6,7 +6,7 @@
 /*   By: thbeaumo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 12:56:33 by thbeaumo          #+#    #+#             */
-/*   Updated: 2019/10/29 18:18:43 by thbeaumo         ###   ########.fr       */
+/*   Updated: 2019/11/08 13:38:43 by bod              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # define MAX_FD 3000
-# define BUFFER_SIZE 4096
 
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char *s2);
