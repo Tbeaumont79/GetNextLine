@@ -6,7 +6,7 @@
 /*   By: thbeaumo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 12:55:42 by thbeaumo          #+#    #+#             */
-/*   Updated: 2019/11/11 15:28:35 by thbeaumo         ###   ########.fr       */
+/*   Updated: 2019/11/11 15:53:23 by thbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ static int		ft_cutline(char *s[], char **line, int fd)
 		len++;
 	if (s[fd][len] == '\n')
 	{
+		printf("WHAT ? \n");
 		if (!(*line = ft_substr(s[fd], 0, len)))
 			return (-1);
 		if (!(tmp = ft_strdup(s[fd] + len + 1)))
@@ -116,9 +117,9 @@ static int		ft_cutline(char *s[], char **line, int fd)
 			return (-1);
 		if (s[fd] != NULL)
 		{
+			printf("LAST FREE !\n");
 			free(s[fd]);
 			s[fd][0] = '\0';
-			printf("je suis passe par la !\n");
 		}
 	}
 	return (1);
@@ -186,7 +187,7 @@ int				get_next_line(int fd, char **line)
 	len = 0;
 	if (line == NULL || fd < 0 || fd > MAX_FD || BUFFER_SIZE < 1)
 		return (-1);
-	if (!s[fd])
+	if (s[fd] == NULL)
 	{
 		if (!(s[fd] = (char *)malloc(2)))
 			return (-1);
@@ -195,14 +196,22 @@ int				get_next_line(int fd, char **line)
 	while (s[fd][len] != '\n' && s[fd][len] != '\0')
 		len++;
 	if (s[fd][len] == '\n')
+	{
 		return (ft_cutline(s, line, fd));
+	}
 	else
 	{
+		printf("THE END ! \n");
 		ret = ft_read(s, ret, fd);
 		if (ret < 0)
 			return (-1);
+		printf("almost ! \n");
 		if (ret == 0 && (s[fd][0] == '\0'))
+		{
+		printf("and i'm out ! LAST VALUES s[fd] : %s et ret : %d \n",s[fd], ret);
 			return (0);
+		}
 	}
+	printf("ret = %d \n", ret);
 	return (ft_cutline(s, line, fd));
 }
