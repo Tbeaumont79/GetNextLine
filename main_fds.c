@@ -6,7 +6,7 @@
 /*   By: bod <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 13:58:28 by bod               #+#    #+#             */
-/*   Updated: 2019/10/30 13:58:29 by bod              ###   ########.fr       */
+/*   Updated: 2019/11/11 14:31:01 by thbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ int        main(int ac, char **av)
 		while ((ret1 = get_next_line(fd1, &str)) > 0)
 		{
 			printf(MAG"line %d "GRE"file 1 : %s\n", i, str);
+			if (str != NULL)
+			{
+				free(str);
+				str = NULL;
+			}
+
 		}
 		i++;
 		close(fd1);
@@ -64,10 +70,25 @@ int        main(int ac, char **av)
 		{ 
 			if ((ret1 = get_next_line(fd1, &str)) > 0)
 				printf(MAG"line %d "GRE"file 1 : %s\n", i, str);
+			if (str != NULL)
+			{
+				free(str);
+				str = NULL;
+			}
 			if ((ret2 = get_next_line(fd2, &str)) > 0)
 				printf(MAG"line %d "YEL"file 2 : %s\n", i, str);
+			if (str != NULL)
+			{
+				free(str);
+				str = NULL;
+			}
 			if ((ret3 = get_next_line(fd3, &str)) > 0)
 				printf(MAG"line %d "BLU"file 3 : %s\n", i, str);
+			if (str != NULL)
+			{
+				free(str);
+				str = NULL;
+			}
 			i++;
 		}
 		printf(BLU"\nNumber of lines reads:"GRE" %d \t\t\t\t\t 👌🏻", i * 3);
@@ -87,5 +108,7 @@ int        main(int ac, char **av)
 		else
 			printf(RED"Error, < read error > \t\t\t ❌  \n");
 	}
+	while (1)
+		;
 	return (0);
 }
