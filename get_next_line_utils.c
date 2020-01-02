@@ -6,7 +6,7 @@
 /*   By: thbeaumo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 12:58:07 by thbeaumo          #+#    #+#             */
-/*   Updated: 2019/11/11 13:08:28 by thbeaumo         ###   ########.fr       */
+/*   Updated: 2020/01/02 11:10:59 by thbeaumo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,33 @@ size_t	ft_strlen(const char *s)
     return (i);
 }
 
-char	*ft_strjoin(char const *s1, char *s2)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
-	int		j;
-	char	*tab;
-	int		count;
+	size_t	i;
+	size_t	j;
+	size_t	s1_len;
+	size_t	s2_len;
+	char	*result;
 
+	s1_len = s1 ? ft_strlen((char *)s1) : 0;
+	s2_len = s2 ? ft_strlen((char *)s2) : 0;
+	if (!(result = malloc(sizeof(char) *
+	(s1_len + s2_len + 1))))
+		return (NULL);
 	i = 0;
 	j = 0;
-	count = 0;
-	if (!s1 || !s2)
-		return (0);
-	if (!(tab = (char *)malloc(sizeof(char) *
-		((ft_strlen(s1) + ft_strlen((char const *)s2)) + 1))))
-		return (0);
-	while (s1[i])
-		tab[count++] = s1[i++];
-	while (s2[j])
-		tab[count++] = s2[j++];
-	tab[count] = '\0';
-	return (tab);
+	while (i < s1_len)
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	while (j < s2_len)
+	{
+		result[i + j] = s2[j];
+		j++;
+	}
+	result[i + j] = '\0';
+	return (result);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -77,12 +83,10 @@ char	*ft_strdup(const char *s1)
 {
 	char	*copy;
 	int		i;
-	int		len;
+	size_t	len;
 
-	len = 0;
+	len = ft_strlen(s1);
 	i = 0;
-	while (s1[len])
-		len++;
 	if (!(copy = (char *)malloc(sizeof(char) * (len + 1))))
 		return (0);
 	while (s1[i])
